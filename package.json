@@ -1,0 +1,21 @@
+{
+  "name": "plugcord",
+  "version": "0.1.0",
+  "description": "A plugin manager for Discord.js",
+  "main": "./bin/index.js",
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "discord.js": "^11.3.2",
+    "typescript": "^3.1.0-dev.20180906"
+  },
+  "peerDependencies": {
+    "discord.js": "^11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc"
+  },
+  "author": "Riley Froude <nabbydude@gmail.com> (https://github.com/nabbydude)",
+  "license": "MIT",
+  "types": "./bin/index.d.ts"
+}
