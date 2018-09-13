@@ -22,7 +22,9 @@ export class PluginManager {
     client.on("message", this.handleMessage);
   }
 
-  addPlugin(plugin: PluginConstructor, commandPrefix: string) {
-    this.plugins.push({ plugin: new plugin(this), commandPrefix });
+  addPlugin(constructor: PluginConstructor, commandPrefix: string): Plugin {
+    const plugin = new constructor(this);
+    this.plugins.push({ plugin, commandPrefix });
+    return plugin;
   }
 }
