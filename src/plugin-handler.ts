@@ -1,5 +1,5 @@
 import * as Discord from "discord.js";
-import { Plugin, PluginConstructor } from "./plugin";
+import { Plugin } from "./plugin";
 
 export class PluginManager {
   plugins: { plugin: Plugin, commandPrefix: string }[] = [];
@@ -22,7 +22,10 @@ export class PluginManager {
     client.on("message", this.handleMessage);
   }
 
-  addPlugin(constructor: PluginConstructor, commandPrefix: string): Plugin {
+  addPlugin<T extends Plugin>(
+    constructor: new (manager: PluginManager) => T,
+    commandPrefix: string
+  ): T {
     const plugin = new constructor(this);
     this.plugins.push({ plugin, commandPrefix });
     return plugin;

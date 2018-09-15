@@ -2,8 +2,6 @@ import * as Discord from "discord.js";
 import { Command } from "./command";
 import { PluginManager } from "./plugin-handler";
 
-export type PluginConstructor = new (manager: PluginManager) => Plugin;
-
 export abstract class Plugin {
   abstract name: string;
   abstract desc: string;
