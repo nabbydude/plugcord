@@ -1,5 +1,5 @@
 import { Command } from "./command";
-import { Param } from "./param/_";
+import { Param } from "./param";
 
 export type ParamPayload<T> = (
   T extends Param<infer R> ? R : never

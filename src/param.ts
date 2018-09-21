@@ -1,4 +1,4 @@
-import { ParamResult } from "../param-result";
+import { ParamResult } from "./param-result";
 
 export abstract class Param<R = unknown> {
   abstract print(): string;
