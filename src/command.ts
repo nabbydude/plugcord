@@ -1,6 +1,5 @@
 import * as Discord from "discord.js";
 import { Param } from "./param";
-import { ParamResult } from "./param-result";
 import { Plugin } from "./plugin";
 import { ParamPayloads } from "./util-types";
 
