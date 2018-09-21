@@ -2,16 +2,13 @@ import * as Discord from "discord.js";
 import { Command } from "./command";
 import { PluginManager } from "./plugin-handler";
 
-export abstract class Plugin {
-  abstract name: string;
-  abstract desc: string;
-  abstract commandPrefix = "";
-  abstract commands: Command[];
-  abstract callbacks: PluginCallbacks;
-
-  constructor(
-    public manager: PluginManager
-  ) {}
+export interface Plugin {
+  name: string;
+  desc: string;
+  commandPrefix: string;
+  commands: Command[];
+  callbacks: PluginCallbacks;
+  manager: PluginManager;
 }
 
 interface PluginCallbacks {
