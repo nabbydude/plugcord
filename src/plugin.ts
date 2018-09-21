@@ -5,6 +5,7 @@ import { PluginManager } from "./plugin-handler";
 export abstract class Plugin {
   abstract name: string;
   abstract desc: string;
+  abstract commandPrefix = "";
   abstract commands: Command[];
   abstract callbacks: PluginCallbacks;
 
