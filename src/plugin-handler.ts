@@ -41,7 +41,7 @@ export class PluginManager {
   }
 
   parseCommand<T extends Param[] = Param[]>(
-    command: Command,
+    command: Command<T>,
     str: string,
     index: number
   ): ParamResult<ParamPayloads<T>> {
