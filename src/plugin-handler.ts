@@ -14,7 +14,7 @@ export class PluginManager {
       for (const c of p.commands) {
         const res = this.parseCommand(
           c,
-          message.content,
+          message,
           p.commandPrefix.length
         );
         if (!res.success) continue;
@@ -42,11 +42,11 @@ export class PluginManager {
 
   parseCommand<T extends Param[] = Param[]>(
     command: Command<T>,
-    str: string,
-    index: number
+    message: Discord.Message,
+    index: number,
   ): ParamResult<ParamPayloads<T>> {
     const invoked = [command.command, ...command.alts].find(
-      c => str.substr(index, c.length).toLowerCase() === c
+      c => message.content.substr(index, c.length).toLowerCase() === c
     );
     if (!invoked) return { success: false };
     index += invoked.length;
@@ -54,11 +54,11 @@ export class PluginManager {
     // skip whitespace
     const reg = /\s*/y;
     reg.lastIndex = index;
-    if (reg.exec(str)) index = reg.lastIndex;
+    if (reg.test(message.content)) index = reg.lastIndex;
 
     const payload = [];
     for (const p of command.params) {
-      const res = p.parse(str, index);
+      const res = p.parse(message, index);
       if (!res.success) return { success: false };
       payload.push(res.payload);
       index = res.end;
