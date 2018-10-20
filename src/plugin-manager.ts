@@ -17,9 +17,10 @@ export class PluginManager {
           message,
           p.commandPrefix.length
         );
-        if (!res.success) continue;
-        c.run(message, res.payload);
-        break;
+        if (res.success) {
+          c.run(message, res.payload);
+          break;
+        }
       }
     }
   }
@@ -40,7 +41,7 @@ export class PluginManager {
     return plugin;
   }
 
-  parseCommand<T extends Param[] = Param[]>(
+  parseCommand<T extends Param[]>(
     command: Command<T>,
     message: Discord.Message,
     index: number,
