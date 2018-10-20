@@ -1,4 +1,4 @@
-export * from "./plugin-handler";
+export * from "./plugin-manager";
 export * from "./param-result";
 export * from "./util-types";
 export * from "./plugin";

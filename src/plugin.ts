@@ -1,6 +1,6 @@
 import * as Discord from "discord.js";
 import { Command } from "./command";
-import { PluginManager } from "./plugin-handler";
+import { PluginManager } from "./plugin-manager";
 
 export interface Plugin {
   name: string;
