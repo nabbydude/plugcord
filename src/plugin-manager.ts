@@ -45,11 +45,11 @@ export class PluginManager {
     message: Discord.Message,
     index: number,
   ): ParamResult<ParamPayloads<T>> {
-    const invoked = [command.command, ...command.alts].find(
+    const invoker = command.invokers.find(
       c => message.content.substr(index, c.length).toLowerCase() === c
     );
-    if (!invoked) return { success: false };
-    index += invoked.length;
+    if (!invoker) return { success: false };
+    index += invoker.length;
 
     // skip whitespace
     const reg = /\s*/y;

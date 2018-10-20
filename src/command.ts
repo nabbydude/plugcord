@@ -4,8 +4,7 @@ import { ParamPayloads } from "./util-types";
 
 export interface Command<T extends Param[] = Param[]> {
   name: string;
-  command: string;
-  alts: string[];
+  invokers: string[];
   desc: string;
   params: T;
   run(message: Discord.Message, params: ParamPayloads<T>): void;
