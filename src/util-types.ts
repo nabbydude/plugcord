@@ -1,12 +1,12 @@
 import { Command } from "./command";
 import { Param } from "./param";
 
-export type ParamPayload<T> = (
+export type ParamPayload<T extends Param> = (
   T extends Param<infer R> ? R : never
 );
 
 export type ParamPayloads<T extends Param[]> = {
-  [P in keyof T]: ParamPayload<T[P]>;
+  [P in Extract<keyof T, number>]: ParamPayload<T[P]>;
 };
 
 export type ParamsOf<T extends Command> = (
