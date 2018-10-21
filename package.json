@@ -6,7 +6,7 @@
   "devDependencies": {
     "@types/node": "^10.9.4",
     "discord.js": "^11.3.2",
-    "typescript": "^3.1.0-dev.20180906"
+    "typescript": "^3.1.1"
   },
   "peerDependencies": {
     "discord.js": "^11"
